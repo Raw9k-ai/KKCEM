@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cover page maker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <h1>Cover page maker</h1>
+    <p>Pick a design, fill in your details, download a PNG. Everything is drawn on your device and nothing is uploaded.</p>
+</header>
+
+<main class="app">
+
+    <section class="stage" aria-label="Preview">
+        <div class="sheet">
+            <canvas id="preview" width="1024" height="1536" role="img" aria-label="Cover page preview"></canvas>
+        </div>
+        <div class="download-bar">
+            <select id="size" aria-label="Image size">
+                <option value="1024|1.5">2:3 · 1024×1536</option>
+                <option value="2048|1.5">2:3 HD · 2048×3072</option>
+                <option value="1240|1.41421">A4 · 1240×1754</option>
+                <option value="2480|1.41421">A4 print · 2480×3508</option>
+            </select>
+            <button class="btn primary" id="download" type="button">Download PNG</button>
+        </div>
+    </section>
+
+    <section class="panel">
+
+        <div class="heading-row">
+            <h2>Pick a design</h2>
+            <button class="text-button" id="shuffle" type="button">Shuffle</button>
+        </div>
+        <div class="grid" id="grid" role="group" aria-label="Designs"></div>
+
+        <div class="heading-row details-heading">
+            <h2>Your details</h2>
+        </div>
+
+        <div class="field">
+            <label for="title">Document title</label>
+            <input type="text" id="title" value="Lab Manual" autocomplete="off">
+        </div>
+        <div class="field">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" value="Programming for Problem Solving" autocomplete="off">
+        </div>
+        <div class="field">
+            <label for="college">College or school</label>
+            <input type="text" id="college" value="KK College of Engineering &amp; Management" autocomplete="off">
+        </div>
+        <div class="field">
+            <label for="address">Address</label>
+            <input type="text" id="address" value="Nairo, Bagsuma, Govindpur, Dhanbad, Jharkhand-828109" autocomplete="off">
+        </div>
+        <div class="field">
+            <label for="dept">Department</label>
+            <input type="text" id="dept" value="Department of Computer Science Engineering" autocomplete="off">
+        </div>
+
+        <div class="two-columns">
+            <div class="field">
+                <label for="toBody">Submitted to</label>
+                <textarea id="toBody" rows="4">Mr. Abhishek Raj Vats</textarea>
+                <p class="hint">One line per row</p>
+            </div>
+            <div class="field">
+                <label for="byBody">Submitted by</label>
+                <textarea id="byBody" rows="4">Ronak Das
+ROLL- 44
+BRANCH- CSE
+SEMESTER-1ST
+BATCH- (2026-2030)</textarea>
+                <p class="hint">Up to 6 lines fit</p>
+            </div>
+        </div>
+
+        <div class="field">
+            <span class="label">Logo</span>
+            <div class="file-row">
+                <input type="file" id="logoFile" accept="image/*">
+                <label class="btn" for="logoFile">Upload logo</label>
+                <button class="text-button" id="logoClear" type="button">Remove logo</button>
+            </div>
+            <p class="hint">Without a logo, a monogram of the college name is drawn.</p>
+        </div>
+
+        <div class="field">
+            <span class="label">Background photo</span>
+            <div class="file-row">
+                <input type="file" id="photoFile" accept="image/*">
+                <label class="btn" for="photoFile">Add photo</label>
+                <button class="text-button" id="photoClear" type="button">Remove photo</button>
+            </div>
+            <p class="hint">Shown faded behind the lower part of the page, like a campus picture.</p>
+        </div>
+
+        <details>
+            <summary>Change the two column headings</summary>
+            <div class="two-columns">
+                <div>
+                    <label for="toHeading">Left heading</label>
+                    <input type="text" id="toHeading" value="Submitted to" autocomplete="off">
+                </div>
+                <div>
+                    <label for="byHeading">Right heading</label>
+                    <input type="text" id="byHeading" value="Submitted by" autocomplete="off">
+                </div>
+            </div>
+        </details>
+
+        <p id="message" role="status"></p>
+    </section>
+
+</main>
+
+<!-- plain scripts, order matters: each file uses the ones above it -->
+<script src="js/logo.js"></script>
+<script src="js/palettes.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/layouts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
